@@ -1,7 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 import 'package:pokedex/core/infra/http/http_data_source_adapter.dart';
+import 'package:pokedex/core/infra/http/http_error.dart';
 
 import '../../../spies.dart';
 
@@ -11,7 +12,7 @@ void main() {
 
   const url = 'example';
   final uri = Uri.parse('https://pokeapi.co/api/v2/$url');
-  final response = Response('body', 200);
+  final response = http.Response('body', 200);
   const headers = {'key': 'values'};
 
   setUp(() {
@@ -72,6 +73,45 @@ void main() {
       // assert
       expect(result.body, 'body');
       expect(result.statusCode, 200);
+    });
+
+    test('should throw BadRequestError on 400', () async {
+      // arrange
+      when(() => clientMock.get(uri)).thenAnswer(
+        (final _) async => http.Response('', 400),
+      );
+
+      // act
+      final result = sut.get(url: url);
+
+      // assert
+      expect(result, throwsA(BadRequestError('')));
+    });
+
+    test('should throw NotFoundError on 404', () async {
+      // arrange
+      when(() => clientMock.get(uri)).thenAnswer(
+        (final _) async => http.Response('', 404),
+      );
+
+      // act
+      final result = sut.get(url: url);
+
+      // assert
+      expect(result, throwsA(NotFoundError('')));
+    });
+
+    test('should throw ServerError if statusCode is none of above', () async {
+      // arrange
+      when(() => clientMock.get(uri)).thenAnswer(
+        (final _) async => http.Response('', 500),
+      );
+
+      // act
+      final result = sut.get(url: url);
+
+      // assert
+      expect(result, throwsA(ServerError('')));
     });
   });
 }
