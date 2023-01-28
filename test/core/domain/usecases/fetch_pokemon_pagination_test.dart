@@ -109,19 +109,4 @@ void main() {
   });
 }
 
-class FetchPokemonPaginationUseCase implements IFetchPokemonPaginationUseCase {
-  FetchPokemonPaginationUseCase(this.repository);
-
-  final IFetchPokemonPaginationRepository repository;
-
-  @override
-  Future<Result<PokemonPaginationEntity, AppError>> fetch({
-    final PokemonPaginationEntity? pokemonPaginationEntity,
-  }) {
-    return repository.fetch(
-      pokemonPaginationEntity: pokemonPaginationEntity,
-    );
-  }
-}
-
 class _FetchPokemonRepository extends Mock implements IFetchPokemonPaginationRepository {}
