@@ -18,7 +18,7 @@ class FetchPokemonPaginationUseCase implements IFetchPokemonPaginationUseCase {
   Future<Result<PokemonPaginationEntity, AppError>> fetch({
     final PokemonPaginationEntity? pokemonPaginationEntity,
   }) {
-    return repository.fetch(
+    return repository.fetchPokemonPagination(
       pokemonPaginationEntity: pokemonPaginationEntity,
     );
   }

@@ -19,6 +19,7 @@ void main() {
     message: 'Failure',
     statusCode: 0,
     exception: Exception(),
+    stackTrace: StackTrace.empty,
   );
 
   setUp(() {
@@ -28,7 +29,7 @@ void main() {
 
   test('should be able to call repository', () async {
     // arrange
-    when(repository.fetch).thenAnswer(
+    when(repository.fetchPokemonPagination).thenAnswer(
       (final _) async => const Success(pokemonPaginationEntity),
     );
 
@@ -36,13 +37,13 @@ void main() {
     sut.fetch();
 
     // assert
-    verify(repository.fetch).called(1);
+    verify(repository.fetchPokemonPagination).called(1);
   });
 
   test('should be able to call repository with the correct values', () async {
     // arrange
     when(
-      () => repository.fetch(
+      () => repository.fetchPokemonPagination(
         pokemonPaginationEntity: pokemonPaginationEntity,
       ),
     ).thenAnswer((final _) async => const Success(pokemonPaginationEntity));
@@ -54,7 +55,7 @@ void main() {
 
     // assert
     verify(
-      () => repository.fetch(
+      () => repository.fetchPokemonPagination(
         pokemonPaginationEntity: pokemonPaginationEntity,
       ),
     ).called(1);
@@ -63,12 +64,12 @@ void main() {
   test('should be able to return a PokemonPaginationEntity on success', () async {
     // arrange
     when(
-      () => repository.fetch(
+      () => repository.fetchPokemonPagination(
         pokemonPaginationEntity: pokemonPaginationEntity,
       ),
     ).thenAnswer((final _) async => const Success(pokemonPaginationEntity));
 
-    when(repository.fetch).thenAnswer(
+    when(repository.fetchPokemonPagination).thenAnswer(
       (final _) async => const Success(pokemonPaginationEntity),
     );
 
@@ -87,12 +88,12 @@ void main() {
   test('should be able to return a AppError on failure', () async {
     // arrange
     when(
-      () => repository.fetch(
+      () => repository.fetchPokemonPagination(
         pokemonPaginationEntity: pokemonPaginationEntity,
       ),
     ).thenAnswer((final _) async => Failure(appError));
 
-    when(repository.fetch).thenAnswer(
+    when(repository.fetchPokemonPagination).thenAnswer(
       (final _) async => Failure(appError),
     );
 
