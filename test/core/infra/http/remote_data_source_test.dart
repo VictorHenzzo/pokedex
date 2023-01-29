@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 import 'package:pokedex/core/adapters/http/http_data_source_adapter.dart';
-import 'package:pokedex/core/adapters/http/http_error.dart';
+import 'package:pokedex/core/errors/http_error.dart';
 
 import '../../../spies.dart';
 

@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import 'package:pokedex/core/adapters/http/http_error.dart';
+import 'package:pokedex/core/errors/http_error.dart';
 import 'package:pokedex/core/adapters/http/remote_data_source.dart';
 
 class HttpDataSourceAdapter implements RemoteDatasource {
