@@ -12,13 +12,13 @@ class PokemonRepository implements IFetchPokemonPaginationRepository {
   PokemonRepository(this.dataSource);
 
   final RemoteDatasource dataSource;
-  final String _baseUrl = 'https://pokeapi.co/api/v2/pokemon';
+  final String _fetchPokemonPaginationUrl = 'https://pokeapi.co/api/v2/pokemon?offset=20&limit=20';
 
   @override
   Future<Result<PokemonPaginationEntity, AppError>> fetchPokemonPagination({
     PokemonPaginationEntity? pokemonPaginationEntity,
   }) async {
-    final currentUrl = pokemonPaginationEntity?.next ?? _baseUrl;
+    final currentUrl = pokemonPaginationEntity?.next ?? _fetchPokemonPaginationUrl;
 
     try {
       final result = await dataSource.get(url: currentUrl);
