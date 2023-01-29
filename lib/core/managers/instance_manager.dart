@@ -1,5 +1,5 @@
-import 'package:pokedex/core/infra/dependency_injector/get_it_adapter.dart';
-import 'package:pokedex/core/infra/dependency_injector/service_injector.dart';
+import 'package:pokedex/core/adapters/service_injector/get_it_adapter.dart';
+import 'package:pokedex/core/adapters/service_injector/service_injector.dart';
 
 class InstanceManager {
   InstanceManager({

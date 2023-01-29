@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:pokedex/core/infra/dependency_injector/service_injector.dart';
+import 'package:pokedex/core/adapters/service_injector/service_injector.dart';
 
 class GetItAdapter implements ServiceInjector {
   final GetIt _getIt = GetIt.instance;

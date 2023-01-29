@@ -1,9 +1,9 @@
 import 'package:http/http.dart';
 import 'package:pokedex/core/data/repositories/pokemon_repository.dart';
 import 'package:pokedex/core/domain/usecases/pokemon/fetch_pokemon_pagination.dart';
-import 'package:pokedex/core/infra/http/http_data_source_adapter.dart';
-import 'package:pokedex/core/infra/http/remote_data_source.dart';
-import 'package:pokedex/core/infra/managers/instance_manager.dart';
+import 'package:pokedex/core/adapters/http/http_data_source_adapter.dart';
+import 'package:pokedex/core/adapters/http/remote_data_source.dart';
+import 'package:pokedex/core/managers/instance_manager.dart';
 
 class CoreBindings {
   CoreBindings._();

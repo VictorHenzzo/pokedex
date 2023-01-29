@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/core/infra/bindings/core_bindings.dart';
+import 'package:pokedex/core/bindings/core_bindings.dart';
 
 void main() {
   CoreBindings.configureDependencies();

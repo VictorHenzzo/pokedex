@@ -2,9 +2,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pokedex/core/data/repositories/pokemon_repository.dart';
 import 'package:pokedex/core/domain/entities/pokemon/pokemon_pagination_entity.dart';
-import 'package:pokedex/core/infra/errors/app_error.dart';
-import 'package:pokedex/core/infra/http/http_error.dart';
-import 'package:pokedex/core/infra/http/remote_data_source.dart';
+import 'package:pokedex/core/errors/app_error.dart';
+import 'package:pokedex/core/adapters/http/http_error.dart';
+import 'package:pokedex/core/adapters/http/remote_data_source.dart';
 
 import '../../../spies.dart';
 
