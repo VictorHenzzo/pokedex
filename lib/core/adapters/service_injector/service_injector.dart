@@ -8,4 +8,6 @@ abstract class ServiceInjector {
   T get<T extends Object>({
     final String? instanceName,
   });
+
+  bool isRegistered<T extends Object>();
 }

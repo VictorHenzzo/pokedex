@@ -25,4 +25,9 @@ class GetItAdapter implements ServiceInjector {
       instanceName: instanceName,
     );
   }
+
+  @override
+  bool isRegistered<T extends Object>() {
+    return _getIt.isRegistered<T>();
+  }
 }

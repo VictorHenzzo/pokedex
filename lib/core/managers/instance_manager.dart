@@ -13,6 +13,10 @@ class InstanceManager {
     String? instanceName,
     bool? signalsReady,
   }) {
+    if (_serviceInjector.isRegistered<T>()) {
+      throw Exception('Instance $instance is already registered');
+    }
+
     _serviceInjector.registerSingleton<T>(
       instance,
       instanceName: instanceName,
