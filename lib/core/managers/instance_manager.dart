@@ -14,7 +14,7 @@ class InstanceManager {
     bool? signalsReady,
   }) {
     if (_serviceInjector.isRegistered<T>()) {
-      throw Exception('Instance $instance is already registered');
+      throw Exception('$instance is already registered');
     }
 
     _serviceInjector.registerSingleton<T>(

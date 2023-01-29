@@ -11,7 +11,7 @@ void main() {
   late HttpClientMock clientMock;
 
   const url = 'example';
-  final uri = Uri.parse('https://pokeapi.co/api/v2/$url');
+  final uri = Uri.parse(url);
   final response = http.Response('body', 200);
   const headers = {'key': 'values'};
 

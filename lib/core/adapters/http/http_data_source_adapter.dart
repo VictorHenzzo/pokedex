@@ -7,14 +7,12 @@ class HttpDataSourceAdapter implements RemoteDatasource {
 
   HttpDataSourceAdapter(this.client);
 
-  String get _baseUrl => 'https://pokeapi.co/api/v2/';
-
   @override
   Future<Response> get({
     required String url,
     Map<String, String>? headers,
   }) async {
-    final uri = Uri.parse(_baseUrl + url);
+    final uri = Uri.parse(url);
 
     final httpResponse = await client
         .get(

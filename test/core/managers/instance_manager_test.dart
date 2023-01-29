@@ -21,6 +21,10 @@ void main() {
         () => serviceInjector.registerSingleton(someDependency),
       ).thenAnswer((final _) => _);
 
+      when(() => serviceInjector.isRegistered<_SomeDependency>()).thenAnswer(
+        (final _) => false,
+      );
+
       // act
       sut.registerSingleton(someDependency);
 
@@ -39,6 +43,10 @@ void main() {
           instanceName: instanceName,
         ),
       ).thenAnswer((final _) => _);
+
+      when(() => serviceInjector.isRegistered<_SomeDependency>()).thenAnswer(
+        (final _) => false,
+      );
 
       // act
       sut.registerSingleton(
