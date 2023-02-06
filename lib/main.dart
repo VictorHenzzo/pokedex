@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/core/bindings/core_bindings.dart';
-import 'package:pokedex/core/domain/usecases/pokemon/fetch_pokemon_pagination.dart';
+import 'package:pokedex/core/domain/usecases/pokemon/fetch_pokemon_pagination_use_case.dart';
 import 'package:pokedex/core/managers/instance_manager.dart';
 
 void main() {
@@ -39,11 +39,12 @@ class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: ElevatedButton(
-        child: Text('GO!'),
-        onPressed: fetch,
-      )),
+      body: Column(children: [
+        ElevatedButton(
+          child: Text('GO!'),
+          onPressed: fetch,
+        ),
+      ]),
     );
   }
 
